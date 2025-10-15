@@ -1,0 +1,10 @@
+openai_api_key: "" # Your OpenAI API key here
+model: "gpt-4o-mini" # Default model is gpt-4o-mini. But you can change it to other models like gpt-5, gpt-5-mini, gpt-5-nano, etc.
+
+# Translation Settings
+source_lang: "English"
+target_lang: "Vietnamese"
+
+# Performance Settings
+max_concurrent: 100
+max_chunk_size: 5000

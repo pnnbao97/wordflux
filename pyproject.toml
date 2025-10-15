@@ -1,0 +1,32 @@
+[project]
+name = "wordflux"
+version = "0.1.0"
+description = "Translate DOCX files while preserving formatting."
+readme = "README.md"
+requires-python = ">=3.12"
+license = { text = "MIT" }
+authors = [
+    { name = "Pham Nguyen Ngoc Bao", email = "pnnbao@gmail.com" }
+]
+
+dependencies = [
+    "openai>=2.3.0",
+    "python-docx>=1.2.0",
+    "pyyaml>=6.0.3",
+    "tqdm>=4.67.1",
+]
+
+[project.urls]
+Homepage = "https://github.com/pnnbao97/wordflux"
+Repository = "https://github.com/pnnbao97/wordflux"
+Issues = "https://github.com/pnnbao97/wordflux/issues"
+
+[project.scripts]
+wordflux = "wordflux.main:main"
+
+[build-system]
+requires = ["hatchling>=1.24.0"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["wordflux"]
