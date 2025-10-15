@@ -43,6 +43,12 @@ class DocxTranslator:
         self.extract()
         self.translator.translate()
         self.inject()
+    
+    async def atranslate(self):
+        """Run the entire translation pipeline asynchronously"""
+        self.extract()
+        await self.translator._translate_all()
+        self.inject()
 
     def extract(self):
         """Extract segments and save checkpoint"""

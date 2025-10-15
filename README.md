@@ -57,6 +57,31 @@ translator.translate()
 print("Translation completed!")
 ```
 
+### Async Usage
+
+```python
+import asyncio
+from wordflux import DocxTranslator
+
+async def translate_document():
+    # Initialize translator
+    translator = DocxTranslator(
+        input_file="document.docx",
+        output_dir="output",
+        openai_api_key="sk-your-openai-api-key-here",
+        source_lang="English",
+        target_lang="Vietnamese"
+    )
+    
+    # Use async translation method
+    await translator.atranslate()
+    
+    print(f"Async translation completed: {translator.get_output_path()}")
+
+# Run async function
+asyncio.run(translate_document())
+```
+
 ### Install from source
 
 ```bash
