@@ -94,9 +94,9 @@ max_chunk_size: 5000     # Maximum chunk size (characters)
 
 ### Supported OpenAI Models
 - `gpt-4o-mini` (default, cost-effective)
-- `gpt-4o`
-- `gpt-4`
-- `gpt-3.5-turbo`
+- `gpt-5`
+- `gpt-5-mini`
+- `gpt-5-nano`
 - And other OpenAI models
 
 ## 📖 Usage
