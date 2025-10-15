@@ -44,7 +44,7 @@ translator = DocxTranslator(
     input_file="complex_document.docx",
     output_dir="./translated_docs",
     openai_api_key="sk-your-openai-api-key-here",
-    model="gpt-4o",                    # Use more powerful model
+    model="gpt-5",                    # Use more powerful model
     source_lang="English",
     target_lang="French",
     max_chunk_size=3000,              # Smaller chunks for complex docs
@@ -52,9 +52,7 @@ translator = DocxTranslator(
 )
 
 # Step-by-step processing
-translator.extract()                  # Extract content
-translator.translator.translate()     # Translate content
-translator.inject()                   # Inject translations
+translator.translate()
 
 print("Translation completed!")
 ```
