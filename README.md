@@ -27,22 +27,6 @@ After installation, you need to set up your OpenAI API key.
 ```python
 from wordflux import DocxTranslator
 
-# Initialize with API key directly
-translator = DocxTranslator(
-    input_file="document.docx",
-    output_dir="output",
-    openai_api_key="sk-your-openai-api-key-here",  # Your API key here
-    model="gpt-4o-mini",
-    source_lang="English",
-    target_lang="Vietnamese"
-)
-```
-
-### Advanced Usage with Custom Settings
-
-```python
-from wordflux import DocxTranslator
-
 # Advanced configuration
 translator = DocxTranslator(
     input_file="complex_document.docx",
