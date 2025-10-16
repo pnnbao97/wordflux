@@ -3,6 +3,7 @@
 > **Translate DOCX using OpenAI - Preserve Format**
 
 WordFlux is a powerful and intelligent tool for translating Microsoft Word documents (.docx) using OpenAI API while preserving the original formatting, structure, and layout completely.
+<img width="1641" height="997" alt="image" src="https://github.com/user-attachments/assets/d665e52a-c03b-4b55-a0e2-e5c5667b8a3c" />
 
 ## 🚀 Installation
 
@@ -57,30 +58,6 @@ translator.translate()
 print("Translation completed!")
 ```
 
-### Async Usage
-
-```python
-import asyncio
-from wordflux import DocxTranslator
-
-async def translate_document():
-    # Initialize translator
-    translator = DocxTranslator(
-        input_file="document.docx",
-        output_dir="output",
-        openai_api_key="sk-your-openai-api-key-here",
-        source_lang="English",
-        target_lang="Vietnamese"
-    )
-    
-    # Use async translation method
-    await translator.atranslate()
-    
-    print(f"Async translation completed: {translator.get_output_path()}")
-
-# Run async function
-asyncio.run(translate_document())
-```
 
 ### Install from source
 
@@ -118,92 +95,11 @@ max_chunk_size: 5000     # Maximum chunk size (characters)
 ```
 
 ### Supported OpenAI Models
-- `gpt-4o-mini` (default, cost-effective)
-- `gpt-5`
 - `gpt-5-mini`
+- `gpt-5`
+- `gpt-5-pro`
 - `gpt-5-nano`
 - And other OpenAI models
-
-## 📖 Usage
-
-### 1. Command Line Usage
-
-```bash
-# Translate DOCX file
-python main.py input_file.docx
-
-# Specify output directory
-python main.py input_file.docx --output_dir ./my_output
-
-# Concrete example
-python main.py document.docx --output_dir ./translated_docs
-```
-
-### 2. Use as Python Module
-
-```python
-from wordflux import DocxTranslator
-
-# Initialize translator
-translator = DocxTranslator(
-    input_file="document.docx",
-    output_dir="output",
-    openai_api_key="your-api-key",
-    model="gpt-4o-mini",
-    source_lang="English",
-    target_lang="Vietnamese",
-    max_chunk_size=5000,
-    max_concurrent=100
-)
-
-# Perform translation
-translator.translate()
-
-# Get translated file path
-output_path = translator.get_output_path()
-print(f"Translated file: {output_path}")
-```
-
-### 3. Step-by-step Usage
-
-```python
-from wordflux import DocxTranslator
-
-translator = DocxTranslator("document.docx", "output", "your-api-key")
-
-# Step 1: Extract content
-translator.extract()
-
-# Step 2: Translate content
-translator.translator.translate()
-
-# Step 3: Inject translations into file
-translator.inject()
-```
-
-## 🔧 Advanced Configuration
-
-### Performance Tuning
-
-```yaml
-# config.yaml
-max_concurrent: 50      # Reduce if encountering rate limit errors
-max_chunk_size: 3000    # Reduce for complex documents
-```
-
-### Change Languages
-
-```yaml
-source_lang: "English"
-target_lang: "French"   # Or "Spanish", "German", "Chinese", etc.
-```
-
-### Use Different Models
-
-```yaml
-model: "gpt-5"         # More powerful model, more expensive
-
-```
 
 ## 📁 Project Structure
 
@@ -233,64 +129,6 @@ wordflux/
         └── spinner.py        # Loading spinner
 ```
 
-## 🎯 Usage Examples
-
-### Simple Document Translation
-
-```bash
-# Translate document.docx from English to Vietnamese
-python main.py document.docx
-```
-
-
-## 🚨 Error Handling
-
-### API Key Error
-```
-❌ Translation failed: OpenAI API key not found in config
-```
-**Solution:** Check `config.yaml` file and ensure API key is correct.
-
-### Rate Limit Error
-```
-❌ Translation failed: Rate limit exceeded
-```
-**Solution:** Reduce `max_concurrent` in `config.yaml` from 100 to 50 or 25.
-
-### File Not Found Error
-```
-❌ Translation failed: [Errno 2] No such file or directory: 'document.docx'
-```
-**Solution:** Check input file path.
-
-## 💡 Tips and Tricks
-
-### 1. **Cost Optimization**
-- Use `gpt-4o-mini` instead of `gpt-4o` for simple documents
-- Adjust `max_chunk_size` according to content
-
-### 2. **Speed Optimization**
-- Increase `max_concurrent` if you have high API quota
-- Use SSD for temporary file storage
-
-### 3. **Large Document Handling**
-- Split large documents into smaller files
-- Use checkpoint system to resume if interrupted
-
-### 4. **Quality Control**
-- Always review translations before use
-- Adjust prompts if necessary
-
-## 🤝 Contributing
-
-We welcome contributions! Please:
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Create a Pull Request
-
 ## 📄 License
 
 This project is distributed under the MIT License. See the `LICENSE` file for more information.
@@ -307,15 +145,6 @@ This project is distributed under the MIT License. See the `LICENSE` file for mo
 - OpenAI API for powerful translation capabilities
 - python-docx library for DOCX file processing
 - Python community for supporting libraries
-
-## 📞 Support
-
-If you encounter issues or have questions:
-
-1. 📖 Read this documentation carefully
-2. 🔍 Check [Issues](https://github.com/pnnbao97/wordflux/issues)
-3. 🆕 Create a new issue if no solution exists
-4. 📧 Contact directly: pnnbao@gmail.com
 
 ---
 
