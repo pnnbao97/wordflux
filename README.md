@@ -3,7 +3,8 @@
 > **Translate DOCX using OpenAI - Preserve Format**
 
 WordFlux is a powerful and intelligent tool for translating Microsoft Word documents (.docx) using OpenAI API while preserving the original formatting, structure, and layout completely.
-<img width="1641" height="997" alt="image" src="https://github.com/user-attachments/assets/d665e52a-c03b-4b55-a0e2-e5c5667b8a3c" />
+<img width="1437" height="997" alt="image" src="https://github.com/user-attachments/assets/0b0b281a-4bbe-4113-a671-2e1d7fc23f39" />
+
 
 ## 🚀 Installation
 
