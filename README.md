@@ -47,6 +47,7 @@ print("Translation completed!")
 
 
 ### Install from source
+>Video hướng dẫn cài đặt bằng tiếng Việt: https://www.facebook.com/100027984306273/videos/1540289863762450/ 
 
 ```bash
 # Clone repository
