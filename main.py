@@ -40,6 +40,8 @@ def main():
     target_lang = config.get("target_lang")
     max_chunk_size = config.get("max_chunk_size")
     max_concurrent = config.get("max_concurrent")
+    base_url = config.get("openai_api_base_url")
+
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
 
@@ -49,7 +51,7 @@ def main():
     spinner = Spinner("Processing DOCX translation")
     spinner.start()
     try:
-        docx_translator = DocxTranslator(input_file, output_dir, openai_api_key, model, source_lang, target_lang, max_chunk_size, max_concurrent)
+        docx_translator = DocxTranslator(input_file, output_dir, openai_api_key, model, source_lang, target_lang, max_chunk_size, max_concurrent, base_url)
         docx_translator.translate()
         spinner.stop()
         print(f"✅ Translation completed successfully!\n→ Output: {docx_translator.get_output_path()}")

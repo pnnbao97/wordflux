@@ -13,7 +13,7 @@ class DocxTranslator:
     Facebook: https://www.facebook.com/pnnbao
     """
 
-    def __init__(self, input_file: str, output_dir: str = "output", openai_api_key: str = "", model: str = "gpt-4o-mini", source_lang: str = "English", target_lang: str = "Vietnamese", max_chunk_size: int = 5000, max_concurrent: int = 100):
+    def __init__(self, input_file: str, output_dir: str = "output", openai_api_key: str = "", model: str = "gpt-4o-mini", source_lang: str = "English", target_lang: str = "Vietnamese", max_chunk_size: int = 5000, max_concurrent: int = 100, base_url: str = None):
         self.input_file = input_file
         self.output_dir = output_dir
         self.openai_api_key = openai_api_key
@@ -22,6 +22,8 @@ class DocxTranslator:
         self.target_lang = target_lang
         self.max_chunk_size = max_chunk_size
         self.max_concurrent = max_concurrent
+        self.base_url = base_url
+
         if not self.openai_api_key:
             raise ValueError("OpenAI API key not found. Please provide a valid OpenAI API key.")
 
@@ -35,7 +37,7 @@ class DocxTranslator:
 
         # Initialize pipeline components
         self.extractor = Extractor(self.input_file, self.checkpoint_file)
-        self.translator = Translator(self.checkpoint_file, self.openai_api_key, self.model, self.source_lang, self.target_lang, self.max_chunk_size, self.max_concurrent)
+        self.translator = Translator(self.checkpoint_file, self.openai_api_key, self.model, self.source_lang, self.target_lang, self.max_chunk_size, self.max_concurrent, self.base_url)
         self.injector = Injector(self.input_file, self.checkpoint_file, self.output_file)
 
     def translate(self):
@@ -43,7 +45,7 @@ class DocxTranslator:
         self.extract()
         self.translator.translate()
         self.inject()
-    
+
     async def atranslate(self):
         """Run the entire translation pipeline asynchronously"""
         self.extract()
